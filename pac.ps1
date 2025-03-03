@@ -1,6 +1,6 @@
-dotnet publish -c Release  ..\App\Halaqat\ -r win-x64 -o .\publish
+dotnet publish -c Release  ..\..\CBT\CBTEditor\CBTEditor\ -r win-x64 -o .\publish
 
-$version = "0.0.1"
+$version = "0.0.2"
 $pack_id = "CBT_Editor"
 $main_exe = "CBT Editor.exe"
 $icon_path = ".\yafea.ico"
