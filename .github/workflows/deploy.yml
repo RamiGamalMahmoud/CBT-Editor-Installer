@@ -7,18 +7,20 @@ on:
 
 jobs:
   release:
-    permissions: write-all
     runs-on: ubuntu-latest
     if: startsWith(github.ref, 'refs/tags/')
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Create Release on GitHub
         uses: softprops/action-gh-release@v1
         with:
-          tag: ${{ github.ref }}
-          files: ./Releases/CBT_Editor-win-Setup.exe
+          tag: ${{ github.ref_name }}
+          name: CBT Editor ${{ github.ref_name }}
+          files: ./Releases/CBT_Editor_${{ github.ref_name }}_setup.exe
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
